@@ -4,7 +4,7 @@
 
 # Home page
 GET     /                           controllers.Application.index
-GET     /hello                      controllers.HelloController.index(name: String)
+GET     /hello                      controllers.Application.hello
 # デフォルト値 1
 GET     /emp/list                   controllers.HelloController.list(page: Int ?= 1)
 
