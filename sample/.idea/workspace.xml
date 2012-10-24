@@ -61,8 +61,10 @@
       <file leaf-file-name="Application.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="34" selection-start="600" selection-end="600" vertical-scroll-proportion="0.50319487">
-              <folding />
+            <state line="22" column="58" selection-start="529" selection-end="529" vertical-scroll-proportion="0.52715653">
+              <folding>
+                <element signature="e#21#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -530,8 +532,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/Application.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="34" selection-start="600" selection-end="600" vertical-scroll-proportion="0.50319487">
-          <folding />
+        <state line="22" column="58" selection-start="529" selection-end="529" vertical-scroll-proportion="0.52715653">
+          <folding>
+            <element signature="e#21#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
