@@ -2,6 +2,8 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+GET     /input                      controllers.EmployeeController.input
+
 # Home page
 GET     /                           controllers.Application.index
 GET     /hello                      controllers.Application.hello
@@ -14,6 +16,11 @@ GET     /test2                      controllers.HelloController.test2
 
 GET     /employee/:id               controllers.HelloController.show(id)
 GET     /employee                   controllers.HelloController.show(id="default")
+
+# User Entry
+GET     /user/entry                 controllers.UserController.initEntry
+POST    /user/entry                 controllers.UserController.submitEntry
+
 
 
 # Map static resources from the /public folder to the /assets URL path

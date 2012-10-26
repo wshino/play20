@@ -1,0 +1,25 @@
+@(userForm: Form[User])
+@import helper._
+@import helper.twitterBootstrap._
+@title = {ユーザー登録}
+
+@main(title, nav = "signup") {
+<div class="container">
+    <h1>ユーザー情報登録</h1></br>
+    @helper.form(action = routes.UserController.submitEntry) {
+    <fieldset>
+        <legend>必要事項を入力してください</legend>
+        @inputText(userForm("name"),'_label -> "name",'_help -> "input valid name.",'_error -> userForm.globalError)
+        @inputText(userForm("email"), '_label -> "email",'_help -> "input valid email.")
+        @inputPassword(userForm("password.main"),'_label -> "password",'_help -> "input password.")
+        @inputPassword(userForm("password.confirm"),'_label -> "confirm passwod",'_error -> userForm.error("password"))
+    </fieldset>
+
+    <div class="actions">
+        <input type="submit" class="btn primary" value="entry">
+        <a href="@routes.UserController.submitEntry" class="btn">cancel</a>
+    </div>
+
+    }
+</div>
+}
