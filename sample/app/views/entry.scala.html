@@ -1,4 +1,8 @@
 @(userForm: Form[User])
+
+@()(implicit lang: play.api.i18n.Lang)
+@import play.api.i18n.Messages
+
 @import helper._
 @import helper.twitterBootstrap._
 @title = {ユーザー登録}
@@ -6,6 +10,7 @@
 @main(title, nav = "signup") {
 <div class="container">
     <h1>ユーザー情報登録</h1></br>
+    <p>@Messages("error.name")</p>
     @helper.form(action = routes.UserController.submitEntry) {
     <fieldset>
         <legend>必要事項を入力してください</legend>
