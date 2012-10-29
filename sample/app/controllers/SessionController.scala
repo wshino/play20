@@ -12,10 +12,7 @@ import java.io.File
  */
 object SessionController extends Controller {
 
-  def count = Action {
-    request =>
-      val session = request.session
-
+  def count = Action { implicit request =>
       val count = session.get("count") match {
         case Some(x) => x.toInt + 1
         case None => 1
@@ -24,6 +21,17 @@ object SessionController extends Controller {
       Ok(<p>Count:{count}</p>).as(HTML).withSession(
         session + ("count" -> count.toString)
       )
+  }
+
+  def delete = Action{ implicit request =>
+      val count = session.get("count") match {
+      case Some(x) => x.toInt + 1
+      case None => 1
+    }
+
+    Ok(<p>Count: {count}</p>).as(HTML).withSession(
+    session - "count"
+    )
   }
 
 }

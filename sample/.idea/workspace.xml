@@ -79,7 +79,7 @@
       <file leaf-file-name="SessionController.scala" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/SessionController.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="108" selection-start="330" selection-end="330" vertical-scroll-proportion="0.38303342">
+            <state line="27" column="134" selection-start="686" selection-end="686" vertical-scroll-proportion="0.38303342">
               <folding>
                 <element signature="e#21#61#0" expanded="true" />
               </folding>
@@ -101,7 +101,7 @@
       <file leaf-file-name="routes" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/conf/routes">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="14" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
+            <state line="22" column="112" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -744,14 +744,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/conf/routes">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="14" selection-start="1024" selection-end="1024" vertical-scroll-proportion="0.0">
+        <state line="22" column="112" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/SessionController.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="108" selection-start="330" selection-end="330" vertical-scroll-proportion="0.38303342">
+        <state line="27" column="134" selection-start="686" selection-end="686" vertical-scroll-proportion="0.38303342">
           <folding>
             <element signature="e#21#61#0" expanded="true" />
           </folding>
