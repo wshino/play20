@@ -21,11 +21,11 @@ object JsonController extends Controller{
     }
   }
 
-  def postJson = Action{ implicit request =>
+  def postJson(name: String) = Action{
     Async(
           WS.url("http://localhost:9000/json/json")
     .withHeaders("Content-Type" -> "application/json")
-    .post(Json.toJson(Map("name" -> "hoge"))).map { response =>
+    .post(Json.toJson(Map("name" -> name))).map { response =>
             (response.json \ "status").as[String] match {
               case "OK" => Ok((response.json \ "message").as[String])
               case "NG" => BadRequest((response.json \ "message").as[String])
