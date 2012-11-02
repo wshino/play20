@@ -2,10 +2,11 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+GET     /returnjson                 controllers.Application.hoge
 GET     /input                      controllers.EmployeeController.input
 
 # Home page
-GET     /                           controllers.Application.index
+#GET     /                           controllers.Application.index
 GET     /hello                      controllers.Application.hello
 # デフォルト値 1
 GET     /emp/list                   controllers.HelloController.list(page: Int ?= 1)

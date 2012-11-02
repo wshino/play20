@@ -3,10 +3,15 @@ package controllers
 import play.api.data._
 import play.api.data.Forms._
 
-
 import play.api.mvc._
+import models.Tasks
 
-object Application extends Controller {
+import com.github.tototoshi.play2.json.LiftJson
+import net.liftweb.json._
+
+object Application extends Controller with LiftJson{
+
+  implicit val formats = DefaultFormats
 
   case class Employee(name: String, mail: Option[String], age: Int)
 
@@ -25,7 +30,14 @@ object Application extends Controller {
   //    Ok(views.html.index("Your new application is ready."))
   //  }
 
-  def index = TODO
+  def hoge = Action{
+    val task = Tasks.findAll
+
+    println(task.head)
+
+
+    Ok(Extraction.decompose(task))
+  }
 
   //  def index = Action {
   //    Ok(views.html.index("Your new application is ready."))
