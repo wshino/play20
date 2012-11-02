@@ -2,12 +2,11 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
-GET     /returnjson                 controllers.Application.hoge
 GET     /input                      controllers.EmployeeController.input
 
 # Home page
 #GET     /                           controllers.Application.index
-GET     /hello                      controllers.Application.hello
+
 # デフォルト値 1
 GET     /emp/list                   controllers.HelloController.list(page: Int ?= 1)
 
@@ -32,5 +31,14 @@ POST    /json/json                   controllers.JsonController.json
 GET    /json/postjson                   controllers.JsonController.postJson(name ?="no name")
 
 GET     /cache/date                 controllers.CacheController.date
+
+GET     /db/display                 controllers.Application.display
+GET     /db/insert/all             controllers.Application.insertAll
+GET     /db/insert/:label             controllers.Application.insert(label)
+GET     /db/update             controllers.Application.update(id: Long, label: String)
+GET     /db/find/:id             controllers.Application.find(id: Long)
+
+
+
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

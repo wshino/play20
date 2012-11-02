@@ -1,15 +1,11 @@
 package models
 
-import java.util.Date
 import play.api.db._
 import play.api.Play.current
 
 import org.scalaquery.ql._
-import basic.BasicTable
-import extended.ExtendedColumnOption.AutoInc
-import extended.ExtendedTable
+import extended.{ExtendedTable => Table}
 import org.scalaquery.ql.TypeMapper._
-import org.scalaquery.ql.extended.{ExtendedTable => Table}
 
 //import org.scalaquery.ql.extended.H2Driver.Implicit._
 
@@ -25,27 +21,54 @@ object Tasks extends Table[Task]("Task") {
 
   lazy val database = Database.forDataSource(DB.getDataSource())
 
-  def id = column[Long]("id")
+  def id = column[Long]("id", O AutoInc, O PrimaryKey, O NotNull)
 
-  def label = column[String]("label")
+  def label = column[String]("label", O NotNull)
 
-  def * = id ~ label <> (Task, Task.unapply _)
+  def * = id ~ label <>(Task, Task.unapply _)
 
+  // 一件取得
+  def find(id: Long) = database.withSession {
+    implicit db: Session =>
+      val q = Tasks.where(_.id is id)
+//      q.first() // 値がなかった場合は例外が飛ぶ
+      q.firstOption // 値がなかった場合は None が返る
+  }
+
+  // 全件取得
   def findAll = database.withSession {
     implicit db: Session =>
-    ////      (for (t <- this) yield t.id ~ t.label).list
-    //      val result = Query(Task)
-    //
-    //      println(result.selectStatement)
-    //
-    //      result.list()
-      val q = for (t <- Tasks) yield t
-          q.list() foreach println
-          q.list()
+      val q = Query(Tasks)
+      q.list()
+  }
 
-    //      val hoge = selectAll.to[List]()
-    //      selectAll.list() foreach println
+  // インサート
+  def insert(task: Task) = database.withSession {
+    implicit db: Session =>
+      Tasks.label insert (task.label)
+  }
 
+  // インサート複数
+  def insertAll(taskList: List[Task]) = database.withSession {
+    implicit db: Session =>
+      for (task <- taskList) {
+        Tasks.label insert (task.label)
+        println(task.label)
+      }
+  }
+
+  // 変更
+  def update(task: Task) = database.withSession {
+    implicit db: Session =>
+    //      val q = for (b <- Tasks if b.id == task.id) yield label
+      val q = Tasks.where(_.id is task.id).map(_.label)
+      q.update(task.label)
+      //      println("update")
+      //      println("update" + q.selectStatement)
+      //      q.update("updateed")
+
+      val res = findAll
+      println(res)
   }
 
 }
