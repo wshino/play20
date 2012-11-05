@@ -6,6 +6,7 @@ import play.api.Play.current
 import org.scalaquery.ql._
 import extended.{ExtendedTable => Table}
 import org.scalaquery.ql.TypeMapper._
+import play.api.Logger
 
 //import org.scalaquery.ql.extended.H2Driver.Implicit._
 
@@ -20,6 +21,7 @@ case class Task(id: Long, label: String)
 object Tasks extends Table[Task]("Task") {
 
   lazy val database = Database.forDataSource(DB.getDataSource())
+  lazy val slave = Database.forDataSource(DB.getDataSource("slave"))
 
   def id = column[Long]("id", O AutoInc, O PrimaryKey, O NotNull)
 
@@ -36,11 +38,24 @@ object Tasks extends Table[Task]("Task") {
   }
 
   // 全件取得
-  def findAll = database.withSession {
+  def findAll(limit: Int = 1000) = database.withSession {
     implicit db: Session =>
-      val q = Query(Tasks)
-      q.list()
+      if (limit == 1000){
+        val q = Query(Tasks)
+        Logger.debug(this + ".findAll:query=" + q.selectStatement)
+        q.list()
+      } else {
+        val q = Query(Tasks).take(limit)
+        Logger.debug(this + ".findAll:query=" + q.selectStatement)
+        q.list()
+      }
   }
+
+  // 件数を指定して取得
+//  def find(limit: Long) = database.withSession{
+//    implicit  db: Session =>
+//
+//  }
 
   // インサート
   def insert(task: Task) = database.withSession {
@@ -67,7 +82,7 @@ object Tasks extends Table[Task]("Task") {
       //      println("update" + q.selectStatement)
       //      q.update("updateed")
 
-      val res = findAll
+      val res = findAll()
       println(res)
   }
 

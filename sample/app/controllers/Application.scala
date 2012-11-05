@@ -33,7 +33,7 @@ object Application extends Controller with LiftJson {
   //  }
 
   def display = Action {
-    val task = Tasks.findAll
+    val task = Tasks.findAll()
     Ok(Extraction.decompose(task))
   }
 
@@ -61,7 +61,7 @@ object Application extends Controller with LiftJson {
   }
 
   def update(id: Long, label: String) = Action {
-    val task = Tasks.findAll.head.copy(id = id, label = label)
+    val task = Tasks.find(id).head.copy(id = id, label = label)
     Tasks.update(task)
     Ok("update ok")
   }

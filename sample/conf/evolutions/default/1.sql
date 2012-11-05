@@ -9,6 +9,7 @@ CREATE TABLE Task (
 INSERT INTO Task (label) VALUES ("おれお");
 INSERT INTO Task (label) VALUES ("おれ");
 INSERT INTO Task (label) VALUES ("おれおooooo");
+INSERT INTO Task (label) VALUES ("slave ja");
 
 # --- !Downs
 DROP TABLE Task
