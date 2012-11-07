@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="commons-pool_commons-pool_1.5.5">
+    <CLASSES>
+      <root url="jar:///usr/local/Cellar/play/2.0.3/libexec/repository/cache/commons-pool/commons-pool/jars/commons-pool-1.5.5.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
