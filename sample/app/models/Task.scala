@@ -7,6 +7,10 @@ import org.scalaquery.ql._
 import extended.{ExtendedTable => Table}
 import org.scalaquery.ql.TypeMapper._
 import play.api.Logger
+import org.json4s.JsonAST.JValue
+
+//import org.json4s.JsonAST.JValue
+
 
 //import org.scalaquery.ql.extended.H2Driver.Implicit._
 
@@ -33,14 +37,14 @@ object Tasks extends Table[Task]("Task") {
   def find(id: Long) = database.withSession {
     implicit db: Session =>
       val q = Tasks.where(_.id is id)
-//      q.first() // 値がなかった場合は例外が飛ぶ
+      //      q.first() // 値がなかった場合は例外が飛ぶ
       q.firstOption // 値がなかった場合は None が返る
   }
 
   // 全件取得
   def findAll(limit: Int = 1000) = database.withSession {
     implicit db: Session =>
-      if (limit == 1000){
+      if (limit == 1000) {
         val q = Query(Tasks)
         Logger.debug(this + ".findAll:query=" + q.selectStatement)
         q.list()
@@ -52,10 +56,10 @@ object Tasks extends Table[Task]("Task") {
   }
 
   // 件数を指定して取得
-//  def find(limit: Long) = database.withSession{
-//    implicit  db: Session =>
-//
-//  }
+  //  def find(limit: Long) = database.withSession{
+  //    implicit  db: Session =>
+  //
+  //  }
 
   // インサート
   def insert(task: Task) = database.withSession {

@@ -11,26 +11,12 @@ import models.Tasks
 import com.github.tototoshi.play2.json.LiftJson
 import net.liftweb.json._
 
-object Application extends Controller with LiftJson {
+
+object Application extends Controller with LiftJson{
 
   implicit val formats = DefaultFormats
 
-//  case class Employee(name: String, mail: Option[String], age: Int)
-//
-//  val employeeForm = Form(
-//    mapping(
-//      "name" -> text,
-//      "mail" -> optional(email),
-//      "age" -> number
-//    )(Employee.apply)(Employee.unapply)
-//  )
-
   def hello = TODO
-
-  //  def hello = Action { implicit request =>
-  //    val employee: Employee = employeeForm.bindFromRequest().get
-  //    Ok(views.html.index("Your new application is ready."))
-  //  }
 
   def display = Action {
     val task = Tasks.findAll()

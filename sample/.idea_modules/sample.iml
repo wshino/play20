@@ -81,11 +81,14 @@
     <orderEntry type="library" name="com.intellij_annotations_7.0.3" level="project" />
     <orderEntry type="library" name="org.scalaquery_scalaquery_2.9.0-1_0.9.5" level="project" />
     <orderEntry type="library" name="mysql_mysql-connector-java_5.1.18" level="project" />
-    <orderEntry type="library" name="com.github.tototoshi_lift-json-play-module_2.9.1_0.1" level="project" />
-    <orderEntry type="library" name="net.liftweb_lift-json_2.9.1_2.4" level="project" />
-    <orderEntry type="library" name="com.thoughtworks.paranamer_paranamer_2.3" level="project" />
+    <orderEntry type="library" name="org.json4s_json4s-native_2.9.1_3.0.0" level="project" />
+    <orderEntry type="library" name="org.json4s_json4s-core_2.9.1_3.0.0" level="project" />
+    <orderEntry type="library" name="com.thoughtworks.paranamer_paranamer_2.4.1" level="project" />
     <orderEntry type="library" name="org.scala-lang_scalap_2.9.1" level="project" />
     <orderEntry type="library" name="org.scala-lang_scala-compiler_2.9.1" level="project" />
+    <orderEntry type="library" name="io.backchat.inflector_scala-inflector_2.9.1_1.3.5" level="project" />
+    <orderEntry type="library" name="com.github.tototoshi_lift-json-play-module_2.9.1_0.1" level="project" />
+    <orderEntry type="library" name="net.liftweb_lift-json_2.9.1_2.4" level="project" />
     <orderEntry type="library" scope="TEST" name="play_play-test_2.9.1_2.0.3_test" level="project" />
     <orderEntry type="library" scope="TEST" name="org.specs2_specs2_2.9.1_1.9_test" level="project" />
     <orderEntry type="library" scope="TEST" name="org.specs2_specs2-scalaz-core_2.9.1_6.0.1_test" level="project" />

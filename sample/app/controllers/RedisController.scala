@@ -15,7 +15,7 @@ object RedisController extends Controller {
   def index = Action {
     // set
     try {
-      val valueSet = Cache.set("item.key", "item.value")
+      val valueSet = Cache.set("item.key", "item.value", 30)
     } catch {
       case _ => println("set error")
     }

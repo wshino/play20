@@ -11,7 +11,8 @@ object ApplicationBuild extends Build {
       "org.sedis" %% "sedis" % "1.0.1",
       "com.typesafe" %% "play-plugins-redis" % "2.0.2",
       "org.scalaquery" % "scalaquery_2.9.0-1" % "0.9.5",
-      "mysql" % "mysql-connector-java" % "5.1.18"
+      "mysql" % "mysql-connector-java" % "5.1.18",
+      "org.json4s" %% "json4s-native" % "3.0.0"
     )
 
     val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
