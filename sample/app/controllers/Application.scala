@@ -25,10 +25,12 @@ object Application extends Controller with LiftJson{
 
   def find(id: Long) = Action{
     val task = Tasks.find(id)
+
     task match {
       case None => Ok("None")
       case _ => Ok(Extraction.decompose(task))
     }
+
   }
 
   def insert(label: String) = Action {
