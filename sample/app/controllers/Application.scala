@@ -10,20 +10,31 @@ import models.Tasks
 
 import com.github.tototoshi.play2.json.LiftJson
 import net.liftweb.json._
+import play.api.Logger
 
 
-object Application extends Controller with LiftJson{
+object Application extends Controller with LiftJson {
 
   implicit val formats = DefaultFormats
 
-  def hello = TODO
+  def hello = Action {
+    implicit request =>
+      if (request.host == "localhost:9000") {
+        Logger.info("ろぐだよー")
+        Ok("cron job execute")
+      }
+      else {
+        Ok("cron job don't execute")
+      }
+
+  }
 
   def display = Action {
     val task = Tasks.findAll()
     Ok(Extraction.decompose(task))
   }
 
-  def find(id: Long) = Action{
+  def find(id: Long) = Action {
     val task = Tasks.find(id)
 
     task match {
