@@ -1,5 +1,6 @@
 package controllers
 
+import _root_.models.User
 import play.api._
 import play.api.db._
 import play.api.mvc._

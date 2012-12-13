@@ -61,33 +61,39 @@ object Tasks extends Table[Task]("Task") {
   //
   //  }
 
-  // インサート
-  def insert(task: Task) = database.withSession {
-    implicit db: Session =>
-      Tasks.label insert (task.label)
-  }
+//  インサート
+    def insert(task: Task) = database.withSession {
+      implicit db: Session =>
+        Tasks.label insert (task.label)
+    }
 
   // インサート複数
   def insertAll(taskList: List[Task]) = database.withSession {
     implicit db: Session =>
       for (task <- taskList) {
-        Tasks.label insert (task.label)
-        println(task.label)
+
+        Tasks.insert(task)
       }
+      taskList.size
   }
+
 
   // 変更
   def update(task: Task) = database.withSession {
     implicit db: Session =>
-    //      val q = for (b <- Tasks if b.id == task.id) yield label
+
       val q = Tasks.where(_.id is task.id).map(_.label)
       q.update(task.label)
-      //      println("update")
-      //      println("update" + q.selectStatement)
-      //      q.update("updateed")
+  }
 
-      val res = findAll()
-      println(res)
+  // 削除
+  def delete(id: Long) {
+    database.withSession {
+      implicit db: Session =>
+        val q = Tasks.where(_.id is id)
+        val res = q.delete
+        println(res)
+    }
   }
 
 }
